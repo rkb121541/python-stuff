@@ -1,0 +1,1 @@
+```bumpy.py``` is supposed to be a file mocking some of the functions from the numpy library. Some of my implementations are not the most efficient.
