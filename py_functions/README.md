@@ -1,0 +1,1 @@
+My own implementations of built in python functions
