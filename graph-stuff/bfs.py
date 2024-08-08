@@ -8,18 +8,17 @@ def BFS(V, edges):
     count = 0
     for vertex in V:
         if vertices[vertex] == 0:
-            q = deque()
             count += 1
-            vertices[vertex] = count
+            q = deque()
             q.append(vertex)
+            vertices[vertex] = count
             while q:
+                u = q.popleft()
                 for src, dst in edges:
-                    if src != vertex: continue 
-                    if vertices[dst] == 0:
+                    if src == u and vertices[dst] == 0:
                         count += 1
                         vertices[dst] = count
                         q.append(dst)
-                q.popleft()
 
     return vertices
             
