@@ -8,17 +8,19 @@ def DFS(V, edges):
     count = 0
     for vertex in V:
         if vertices[vertex] == 0:
-            stack = [vertex]
+            count += 1
+            stack = []
+            stack.append(vertex)
+            vertices[vertex] = count
             while stack:
-                u = stack.pop()
-                if vertices[u] == 0: 
-                    count += 1
-                    vertices[u] = count
-                    for edge in edges:
-                        if edge[0] == u and vertices[edge[1]] == 0:
-                            stack.append(edge[1])
-
-    return vertices
+                for edge in edges:
+                    if edge[0] == stack[-1] and vertices[edge[1]] == 0:
+                        count += 1
+                        vertices[edge[1]] = count
+                        stack.append(edge[1])
+                stack.pop()
+                
+    return list(vertices.values())
             
 
 

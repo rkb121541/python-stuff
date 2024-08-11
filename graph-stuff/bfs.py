@@ -13,14 +13,14 @@ def BFS(V, edges):
             q.append(vertex)
             vertices[vertex] = count
             while q:
-                u = q.popleft()
                 for src, dst in edges:
-                    if src == u and vertices[dst] == 0:
+                    if src == q[0] and vertices[dst] == 0:
                         count += 1
                         vertices[dst] = count
                         q.append(dst)
+                q.popleft()
 
-    return vertices
+    return list(vertices.values())
             
 
 
